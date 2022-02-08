@@ -5,7 +5,7 @@ import './css/styles.css';
 import DinoGenerator from './dino.js';
 
 function checkLoss(wrongLetter) {
-  if (wrongLetter === 10) {
+  if (wrongLetter === 6) {
     return true;
   } else {
     return false;
@@ -20,32 +20,44 @@ function checkWin(wordArray) {
   }
 }
 
-
-
 $(document).ready(function() {
   let promise = DinoGenerator.getDino();
   promise.then(function(response) {
     const body = JSON.parse(response);
     const dino = body[0][0].toLowerCase();
+    console.log(dino);
     let dinoArray = dino.split("");
     let wordArray = [];
     let wrongLetter = 0;
     dinoArray.forEach(function() {
       wordArray.push("_ ");
-    })
-    $("").text(wordArray.join(""));
+    });
+    $("#hangmanWord").text(wordArray.join(""));
     $("#formOne").submit(function(event){
       event.preventDefault();
       const input = $("#letter").val();
+      console.log(input);
       if (dinoArray.includes(input)) {
         dinoArray.forEach(function(letter, index) {
           if (letter === input) {
             wordArray[index] = letter;
           }
         });
-      })
-    })
-  })
+        if (checkWin(wordArray)) {
+          $("#game").hide();
+          $("#win").show();
+        }
+      } else {
+        $("#guessedLetters").append(input);
+        wrongLetter++;
+        if (checkLoss(wrongLetter)) {
+          $("#game").hide();
+          $("#loss").show();
+        }
+      }
+    $('#hangmanWord').text(wordArray.join(''));
+    $("#letter").val("");
+    console.log(wrongLetter);
+    });
+  });
 });
-
-// discord went down? stuck in a loading circle

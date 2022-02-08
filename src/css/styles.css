@@ -1,0 +1,26 @@
+body {
+  background-image: url("https://cdn.vox-cdn.com/thumbor/Y-MAoTzWzY3m7aiLIkq-vtEv9b8=/0x0:1280x536/1200x800/filters:focal(538x166:742x370)/cdn.vox-cdn.com/uploads/chorus_image/image/47738175/dinotrexes.0.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  color: white;
+}
+
+button {
+  margin-top: 2%;
+  margin-bottom: 2%;
+}
+
+button:hover {
+  box-shadow: 2px 3px 4px rgb(248, 165, 11);
+}
+
+#loss {
+  display: none;
+  margin-top: 10%;
+}
+
+#win {
+  display: none;
+  margin-top: 10%;
+}
