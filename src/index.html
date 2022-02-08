@@ -1,10 +1,29 @@
 <!DOCTYPE html>
 <html lang="en-US">
 <head>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <title>Memory Game</title>
+  <title>Dino Hangman</title>
 </head>
 <body>
-  
+  <div id="game" class="container">
+    <h1>Dino Hangman</h1>
+    <h2 id="hangmanWord"></h2>
+    <form id="formOne">
+      <div class="form-group">
+        <label for="letter">Enter a letter:</label>
+        <input id="letter" class="form-control" type="text">
+      </div>
+      <button type="submit" class="btn">Check your guess!</button>
+    </form>
+    <div class="guessedLetters">
+      <h4>Letters guessed not in word:</h4>
+      <p id="guessedLetters"></p>
+    </div>
+    <div id="loss">
+      <h1>YOU LOST!!!!!! MUHAHAHAHAHA</h1>
+    </div>
+    <div id="win">
+      <h1>Ok ok ok fine you win this time.</h1>
+    </div>
+  </div>
 </body>
 </html>
